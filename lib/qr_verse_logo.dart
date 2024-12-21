@@ -36,6 +36,7 @@ class QrVerseLogo extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 36,
+                        fontFamily: 'IrishGrover'
                       ),
                     ),
                   ),
@@ -58,6 +59,7 @@ class QrVerseLogo extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 36,
+                          fontFamily: 'IrishGrover'
                         ),
                       ),
                     ),
@@ -91,6 +93,7 @@ class QrVerseLogo extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 36,
+                          fontFamily: 'IrishGrover'
                         ),
                       ),
                     ),
@@ -114,6 +117,7 @@ class QrVerseLogo extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 36,
+                          fontFamily: 'IrishGrover'
                         ),
                       ),
                     ),
@@ -137,6 +141,7 @@ class QrVerseLogo extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 36,
+                          fontFamily: 'IrishGrover'
                         ),
                       ),
                     ),
@@ -160,6 +165,7 @@ class QrVerseLogo extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 36,
+                          fontFamily: 'IrishGrover'
                         ),
                       ),
                     ),
@@ -183,6 +189,7 @@ class QrVerseLogo extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 36,
+                          fontFamily: 'IrishGrover'
                         ),
                       ),
                     ),

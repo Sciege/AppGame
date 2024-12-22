@@ -78,5 +78,9 @@ flutter:
      - family: IrishGrover
        fonts:
          - asset: fonts/IrishGrover-Regular.ttf
+
+     - family: Poppins
+       fonts:
+         - asset: fonts/Poppins-Extrabold.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

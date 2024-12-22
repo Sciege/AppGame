@@ -9,14 +9,27 @@ class Homepage extends StatelessWidget {
     User_stats(userName: 'Test-1', points: 0),
     User_stats(userName: 'Test-2', points: 0),
     User_stats(userName: 'Test-3', points: 0),
-    User_stats(userName: 'Test-4', points: 0)
+    User_stats(userName: 'Test-4', points: 0),
+    User_stats(userName: 'Test-5', points: 0)
   ];
 
   Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // get the remaining items and put it to another list
+    final remainingItems = lists.length > 3 ? lists.sublist(3) : [];
+
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Container(
+        height: 80,
+        width: 80,
+        child: FloatingActionButton.large(
+          onPressed: () {},
+          child: Icon(Icons.camera_alt_outlined),
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: AppColors().background,
         title: Center(
@@ -33,10 +46,22 @@ class Homepage extends StatelessWidget {
                   fontSize: 40, fontFamily: 'Poppins', color: Colors.white),
             ),
           ),
-          Leaderboard(list: lists),
+          if (lists.isNotEmpty) Leaderboard(list: lists.take(3).toList()),
+          Expanded(
+            child: ListView.builder(
+              itemCount: remainingItems.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Leaderboard_2(
+                  user_stats: remainingItems[index],
+                  //index is like incrementing itself
+                  position: index + 4,
+                );
+              },
+            ),
+          ),
         ],
       ),
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors().background,
     );
   }
 }

@@ -77,7 +77,7 @@ class Leaderboard extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

@@ -19,15 +19,18 @@ class Leaderboard_2 extends StatelessWidget {
           children: [
             Text(
               position.toString(),
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 20, fontFamily: 'Poppins'),
             ),
             SizedBox(width: 10),
             CircleAvatar(radius: 30),
             SizedBox(width: 10),
-            Text(user_stats.userName),
+            Text(user_stats.userName,style: TextStyle(fontFamily: 'Poppins'),),
             // use spacer to place this at the right
             Spacer(),
-            Text('${user_stats.points.toString()} pts'),
+            Text(
+              '${user_stats.points.toString()} pts',
+              style: TextStyle(fontFamily: 'Poppins'),
+            ),
           ],
         ),
       ),

@@ -35,9 +35,9 @@ class Leaderboard extends StatelessWidget {
 
   Widget _buildPodium(User_stats list,
       {required double height,
-        required String position,
-        required double place_font_size,
-        required double points_font_size}) {
+      required String position,
+      required double place_font_size,
+      required double points_font_size}) {
     return Column(
       children: [
         Container(
@@ -53,7 +53,10 @@ class Leaderboard extends StatelessWidget {
                 Icons.person,
                 size: 50,
               ),
-              Text(list.userName),
+              Text(
+                list.userName,
+                style: TextStyle(fontFamily: 'Poppins'),
+              ),
             ],
           ),
         ),
@@ -69,11 +72,15 @@ class Leaderboard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               // have to wrap it in '${}' since 0 is int we have to make it string
-              Text('${list.points} pts',
-                style: TextStyle(fontSize: points_font_size),),
+              Text(
+                '${list.points} pts',
+                style: TextStyle(
+                    fontSize: points_font_size, fontFamily: 'Poppins'),
+              ),
               Text(
                 position,
-                style: TextStyle(fontSize: place_font_size),
+                style:
+                    TextStyle(fontSize: place_font_size, fontFamily: 'Poppins'),
               ),
             ],
           ),
@@ -89,4 +96,3 @@ class User_stats {
 
   User_stats({required this.userName, required this.points});
 }
-

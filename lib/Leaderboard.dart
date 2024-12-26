@@ -49,25 +49,25 @@ class Leaderboard extends StatelessWidget {
             // so no need to Center manually
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
+              const Icon(
                 Icons.person,
                 size: 50,
               ),
               Text(
                 list.userName,
-                style: TextStyle(fontFamily: 'Poppins'),
+                style: const TextStyle(fontFamily: 'Poppins'),
               ),
             ],
           ),
         ),
 
         // here we need to define the height and position in the parameter
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Container(
           width: 125,
           height: height,
           color: Colors.white,
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+          padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

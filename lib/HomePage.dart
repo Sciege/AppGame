@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testonly/Leaderboard.dart';
 import 'package:testonly/Leaderboard_2.dart';
+import 'package:testonly/QR_Scanner.dart';
 import 'colors.dart';
 import 'qr_verse_logo.dart';
 
@@ -22,24 +23,29 @@ class Homepage extends StatelessWidget {
 
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Container(
+      floatingActionButton: SizedBox(
         height: 80,
         width: 80,
         child: FloatingActionButton.large(
-          onPressed: () {},
-          child: Icon(Icons.camera_alt_outlined),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const QrScanner()),
+            );
+          },
+          child: const Icon(Icons.camera_alt_outlined),
         ),
       ),
       appBar: AppBar(
         backgroundColor: AppColors().background,
-        title: Center(
+        title: const Center(
           child: QrVerseLogo(),
         ),
         toolbarHeight: 200,
       ),
       body: Column(
         children: [
-          Center(
+          const Center(
             child: Text(
               'Leaderboard',
               style: TextStyle(

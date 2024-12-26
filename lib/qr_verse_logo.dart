@@ -9,7 +9,7 @@ class QrVerseLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        padding: EdgeInsets.fromLTRB(10, 0, 5, 0),
+        padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
         // Add padding
         child: FittedBox(
           // this part is need to change soon as it causes 'overflow'
@@ -20,7 +20,7 @@ class QrVerseLogo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              SizedBox(width: 5),
+              const SizedBox(width: 5),
               Transform.rotate(
                 angle: -0.1,
                 child: Container(
@@ -43,7 +43,7 @@ class QrVerseLogo extends StatelessWidget {
                 ),
               ),
               Transform.translate(
-                offset: Offset(-3, -10),
+                offset: const Offset(-3, -10),
                 child: Transform.rotate(
                   angle: 0.1,
                   child: Container(
@@ -66,7 +66,7 @@ class QrVerseLogo extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
+              SizedBox(
                 width: 25,
                 height: 55,
                 child: Center(
@@ -77,7 +77,7 @@ class QrVerseLogo extends StatelessWidget {
                 ),
               ),
               Transform.translate(
-                offset: Offset(0, -10),
+                offset: const Offset(0, -10),
                 child: Transform.rotate(
                   angle: -0.18,
                   child: Container(
@@ -87,7 +87,7 @@ class QrVerseLogo extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       color: AppColors().bg_logo,
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'v',
                         style: TextStyle(
@@ -101,7 +101,7 @@ class QrVerseLogo extends StatelessWidget {
                 ),
               ),
               Transform.translate(
-                offset: Offset(-6, 12),
+                offset: const Offset(-6, 12),
                 child: Transform.rotate(
                   angle: 0.17,
                   child: Container(
@@ -111,7 +111,7 @@ class QrVerseLogo extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       color: AppColors().bg_logo,
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'e',
                         style: TextStyle(
@@ -125,7 +125,7 @@ class QrVerseLogo extends StatelessWidget {
                 ),
               ),
               Transform.translate(
-                offset: Offset(-9, -5),
+                offset: const Offset(-9, -5),
                 child: Transform.rotate(
                   angle: -0.09,
                   child: Container(
@@ -135,7 +135,7 @@ class QrVerseLogo extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       color: AppColors().bg_logo,
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'r',
                         style: TextStyle(
@@ -149,7 +149,7 @@ class QrVerseLogo extends StatelessWidget {
                 ),
               ),
               Transform.translate(
-                offset: Offset(-12, 8),
+                offset: const Offset(-12, 8),
                 child: Transform.rotate(
                   angle: 0.13,
                   child: Container(
@@ -159,7 +159,7 @@ class QrVerseLogo extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       color: AppColors().bg_logo,
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         's',
                         style: TextStyle(
@@ -173,7 +173,7 @@ class QrVerseLogo extends StatelessWidget {
                 ),
               ),
               Transform.translate(
-                offset: Offset(-15, -10),
+                offset: const Offset(-15, -10),
                 child: Transform.rotate(
                   angle: 0.09,
                   child: Container(
@@ -183,7 +183,7 @@ class QrVerseLogo extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       color: AppColors().bg_logo,
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'e',
                         style: TextStyle(

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:testonly/auth/login.dart';
 import 'package:testonly/colors.dart';
 
 class SignUp extends StatefulWidget {
@@ -79,7 +80,14 @@ class _SignUpState extends State<SignUp> {
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Login(),
+                        ),
+                      );
+                    },
                     child: Text(
                       'LogIn',
                       style:

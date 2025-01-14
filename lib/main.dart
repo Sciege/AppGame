@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:testonly/HomePage.dart';
-import 'package:testonly/auth/login.dart';
-
 import 'auth/signup.dart';
 
 void main(){

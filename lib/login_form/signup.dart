@@ -1,16 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:testonly/auth/signup.dart';
 import 'package:testonly/colors.dart';
+import 'package:testonly/services/auth_service.dart';
+import 'login.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LoginState extends State<Login> {
+class _SignUpState extends State<SignUp> {
+  final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,13 +27,14 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Log-in Account',
+                    'Register Account',
                     style: TextStyle(fontSize: 35, color: Colors.white),
                   ),
                   SizedBox(height: 15),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: TextField(
+                      controller: email,
                       cursorColor: Colors.grey,
                       style: TextStyle(fontSize: 25, color: Colors.white),
                       decoration: InputDecoration(
@@ -52,6 +57,7 @@ class _LoginState extends State<Login> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextField(
+                      controller: password,
                       selectionControls: cupertinoDesktopTextSelectionControls,
                       cursorColor: Colors.grey,
                       style: TextStyle(fontSize: 25, color: Colors.white),
@@ -66,6 +72,19 @@ class _LoginState extends State<Login> {
                               borderRadius: BorderRadius.circular(15))),
                     ),
                   ),
+                  OutlinedButton(
+                    onPressed: () async {
+                      //call the AuthService class
+                      await AuthService().signup(
+                          email: email.text,
+                          password: password.text,
+                          context: context);
+                    },
+                    child: Text(
+                      'Register',
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -76,7 +95,7 @@ class _LoginState extends State<Login> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Don't Have Account?",
+                  'Already Have Account?',
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
                 TextButton(
@@ -84,12 +103,12 @@ class _LoginState extends State<Login> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SignUp(),
+                          builder: (context) => Login(),
                         ),
                       );
                     },
                     child: Text(
-                      'Sign-up',
+                      'LogIn',
                       style:
                           TextStyle(color: Colors.grey.shade500, fontSize: 18),
                     ))

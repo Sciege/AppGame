@@ -1,16 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:testonly/auth/login.dart';
 import 'package:testonly/colors.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+import '../services/auth_service.dart';
+
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<Login> createState() => _LoginState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _LoginState extends State<Login> {
+  final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +33,7 @@ class _SignUpState extends State<SignUp> {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: TextField(
+                      controller: email,
                       cursorColor: Colors.grey,
                       style: TextStyle(fontSize: 25, color: Colors.white),
                       decoration: InputDecoration(
@@ -52,11 +56,12 @@ class _SignUpState extends State<SignUp> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextField(
+                      controller: password,
                       selectionControls: cupertinoDesktopTextSelectionControls,
                       cursorColor: Colors.grey,
                       style: TextStyle(fontSize: 25, color: Colors.white),
                       decoration: InputDecoration(
-                          // WHEN FOCUSED THE BORDER WILL SHOW WHITE
+                        // WHEN FOCUSED THE BORDER WILL SHOW WHITE
                           focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(15)),
@@ -66,6 +71,19 @@ class _SignUpState extends State<SignUp> {
                               borderRadius: BorderRadius.circular(15))),
                     ),
                   ),
+                  OutlinedButton(
+                    onPressed: () async {
+                      //call the AuthService class
+                      await AuthService().login(
+                          email: email.text,
+                          password: password.text,
+                          context: context);
+                    },
+                    child: Text(
+                      'Log-in',
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -76,22 +94,15 @@ class _SignUpState extends State<SignUp> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Already Have Account?',
+                  "Don't Have Account?",
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
                 TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Login(),
-                        ),
-                      );
-                    },
+                    onPressed: () {},
                     child: Text(
-                      'LogIn',
+                      'Sign-up',
                       style:
-                          TextStyle(color: Colors.grey.shade500, fontSize: 18),
+                      TextStyle(color: Colors.grey.shade500, fontSize: 18),
                     ))
               ],
             ),

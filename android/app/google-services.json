@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "827628718390",
+    "project_id": "qr-verse",
+    "storage_bucket": "qr-verse.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827628718390:android:28ea807f7047815a7a8b97",
+        "android_client_info": {
+          "package_name": "com.example.testonly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChYXypM_0QSFE8fvqJUrsi1GAA82TMy6U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

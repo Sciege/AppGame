@@ -22,6 +22,7 @@ class AuthService {
 
       if (userCredential.user != null) {
         // show message successful
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Center(child: Text('Account Created Succesfully'))));
       } else {
         return false;
       }
@@ -37,17 +38,19 @@ class AuthService {
           message = 'An account already exists with that email';
           break;
         case 'invalid-email':
-          message = 'The email address is not valid';
+          message = 'Email address is not valid';
           break;
         default:
           message = 'An error occurred during registration';
       }
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Center(child: Text(message))));
       //show message
     }
     // for other errors
     catch (e) {
       Navigator.pop(context);
       //if other problem occur beyond expectation print message
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Unkown error')));
     }
   }
 
@@ -76,6 +79,7 @@ class AuthService {
       );
       if (userCredential.user != null) {
         // show message successful
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Center(child: Text('Log-in Succesfully'))));
       } else {
         return false;
       }
@@ -97,11 +101,13 @@ class AuthService {
           message = 'An error occurred during registration';
       }
       //show message
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Center(child: Text(message))));
     }
     // for other errors
     catch (e) {
       Navigator.pop(context);
       //if other problem occur beyond expectation print message
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Unkown error')));
     }
   }
 }

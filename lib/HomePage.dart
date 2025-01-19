@@ -37,6 +37,7 @@ class Homepage extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: AppColors().background,
         title: const Center(
           child: QrVerseLogo(),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:testonly/colors.dart';
+import 'package:testonly/login_form/signup.dart';
 
 import '../services/auth_service.dart';
 
@@ -14,6 +15,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +28,7 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Register Account',
+                    'Log-in Account',
                     style: TextStyle(fontSize: 35, color: Colors.white),
                   ),
                   SizedBox(height: 15),
@@ -61,7 +63,7 @@ class _LoginState extends State<Login> {
                       cursorColor: Colors.grey,
                       style: TextStyle(fontSize: 25, color: Colors.white),
                       decoration: InputDecoration(
-                        // WHEN FOCUSED THE BORDER WILL SHOW WHITE
+                          // WHEN FOCUSED THE BORDER WILL SHOW WHITE
                           focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(15)),
@@ -98,11 +100,18 @@ class _LoginState extends State<Login> {
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignUp(),
+                        ),
+                      );
+                    },
                     child: Text(
                       'Sign-up',
                       style:
-                      TextStyle(color: Colors.grey.shade500, fontSize: 18),
+                          TextStyle(color: Colors.grey.shade500, fontSize: 18),
                     ))
               ],
             ),

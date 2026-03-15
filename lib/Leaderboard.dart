@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'colors.dart';
 
 class Leaderboard extends StatelessWidget {
   List<User_stats> list;
@@ -7,85 +8,128 @@ class Leaderboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        // add crossAlignment.end so that the leaderboard will be placed at the bottom
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           _buildPodium(list[1],
-              height: 100,
+              height: 95,
               position: '2nd',
-              place_font_size: 35,
-              points_font_size: 15),
+              color: AppColors().silver),
+          const SizedBox(width: 10),
           _buildPodium(list[0],
-              height: 130,
+              height: 125,
               position: '1st',
-              place_font_size: 50,
-              points_font_size: 20),
+              color: AppColors().primary,
+              isFirst: true),
+          const SizedBox(width: 10),
           _buildPodium(list[2],
               height: 80,
               position: '3rd',
-              place_font_size: 25,
-              points_font_size: 13)
+              color: AppColors().bronze),
         ],
       ),
     );
   }
 
-  Widget _buildPodium(User_stats list,
+  Widget _buildPodium(User_stats user,
       {required double height,
       required String position,
-      required double place_font_size,
-      required double points_font_size}) {
-    return Column(
-      children: [
-        Container(
-          width: 100,
-          height: 100,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(15)),
-          child: Column(
-            // so no need to Center manually
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(
-                Icons.person,
-                size: 50,
+      required Color color,
+      bool isFirst = false}) {
+    return Expanded(
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(3),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: isFirst ? color : color.withOpacity(0.3), 
+                width: isFirst ? 2 : 1
               ),
-              Text(
-                list.userName,
-                style: const TextStyle(fontFamily: 'Poppins'),
-              ),
-            ],
-          ),
-        ),
-
-        // here we need to define the height and position in the parameter
-        const SizedBox(height: 10),
-        Container(
-          width: 125,
-          height: height,
-          color: Colors.white,
-          padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              // have to wrap it in '${}' since 0 is int we have to make it string
-              Text(
-                '${list.points} pts',
+            ),
+            child: CircleAvatar(
+              radius: isFirst ? 32 : 26,
+              backgroundColor: AppColors().surfaceVariant,
+              child: Text(
+                user.userName.substring(0, 1).toUpperCase(),
                 style: TextStyle(
-                    fontSize: points_font_size, fontFamily: 'Poppins'),
+                  color: isFirst ? color : Colors.white70,
+                  fontWeight: FontWeight.bold,
+                  fontSize: isFirst ? 22 : 16,
+                ),
               ),
-              Text(
-                position,
-                style:
-                    TextStyle(fontSize: place_font_size, fontFamily: 'Poppins'),
-              ),
-            ],
+            ),
           ),
-        ),
-      ],
+          const SizedBox(height: 10),
+          Text(
+            user.userName,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: isFirst ? FontWeight.bold : FontWeight.w500,
+              fontFamily: 'Poppins',
+              fontSize: 12,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Container(
+            width: double.infinity,
+            height: height,
+            decoration: BoxDecoration(
+              color: color.withOpacity(0.12), // Increased opacity for visibility
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: color.withOpacity(0.35), // Sharper borders
+                width: 1.5,
+              ),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: color.withOpacity(0.2),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Text(
+                    position.substring(0, 1), 
+                    style: TextStyle(
+                      fontSize: isFirst ? 18 : 14,
+                      fontWeight: FontWeight.w900,
+                      color: color,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  position,
+                  style: TextStyle(
+                    fontSize: isFirst ? 18 : 14,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontFamily: 'Poppins',
+                  ),
+                ),
+                Text(
+                  '${user.points}',
+                  style: TextStyle(
+                    color: Colors.white60,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'Poppins',
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

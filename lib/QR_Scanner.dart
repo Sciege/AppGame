@@ -40,35 +40,56 @@ class _QrScannerState extends State<QrScanner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text(
-          'Simple scanner',
-          style: TextStyle(color: Colors.white, fontFamily: 'Poppins'),
+          'Scanner',
+          style: TextStyle(
+            color: Colors.white, 
+            fontFamily: 'Poppins',
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
         ),
-        backgroundColor: AppColors().background,
-        foregroundColor: Colors.black,
-        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
-      backgroundColor: Colors.black,
+      extendBodyBehindAppBar: true,
       body: Stack(
         children: [
           MobileScanner(
             onDetect: _handleBarcode,
           ),
+          // Clean Minimalist Overlay
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.5),
+            ),
+            child: Center(
+              child: Container(
+                width: 250,
+                height: 250,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white30, width: 2),
+                  borderRadius: BorderRadius.circular(24),
+                ),
+              ),
+            ),
+          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
+              padding: const EdgeInsets.only(bottom: 60),
               child: Container(
-                alignment: Alignment.bottomCenter,
-                height: 50,
-                color: Colors.white.withOpacity(0.3),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(child: Center(child: _buildBarcode(_barcode))),
-                  ],
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                decoration: BoxDecoration(
+                  color: Colors.black87,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.white10),
                 ),
+                child: _buildBarcode(_barcode),
               ),
             ),
           ),

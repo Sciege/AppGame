@@ -66,13 +66,24 @@ class QrVerseLogo extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
-                width: 25,
-                height: 55,
-                child: Center(
-                  child: SvgPicture.asset(
-                    'assets/dash.svg',
-                    height: 50,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Transform.rotate(
+                  angle: 0.2, // Slight tilt for dynamism
+                  child: Container(
+                    width: 30,
+                    height: 8,
+                    decoration: BoxDecoration(
+                      color: AppColors().bg_logo,
+                      borderRadius: BorderRadius.circular(4),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          blurRadius: 4,
+                          offset: const Offset(2, 2),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

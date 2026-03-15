@@ -49,8 +49,7 @@ class AuthService {
     // for other errors
     catch (e) {
       Navigator.pop(context);
-      //if other problem occur beyond expectation print message
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Unkown error')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: ${e.toString()}')));
     }
   }
 
@@ -106,8 +105,7 @@ class AuthService {
     // for other errors
     catch (e) {
       Navigator.pop(context);
-      //if other problem occur beyond expectation print message
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Unkown error')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: ${e.toString()}')));
     }
   }
 }
